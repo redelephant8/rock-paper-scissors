@@ -1,114 +1,119 @@
 * {
-    background-color: #040a44;
-    color: white;
+  background-color: #040a44;
+  color: white;
 }
 
-.far, .fas {
-    font-size: 100px;
-    color: white;
-    height: 100px;
-    width: 100px;
-    padding: 20px;
+.body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.main {
+    flex: 1;
+}
+
+.far,
+.fas {
+  font-size: 100px;
+  color: white;
+  height: 100px;
+  width: 100px;
+  padding: 20px;
 }
 
 button {
-    border: 3px solid cyan;
-    border-radius: 6%;
-    transition: all 0.2s ease;
-    font-family: 'Quicksand';
+  border: 3px solid cyan;
+  border-radius: 6%;
+  transition: all 0.2s ease;
+  font-family: "Quicksand";
 }
 
-.left button:hover, .right button:hover {
-    cursor: default;
-    transform: none;
+.left button:hover,
+.right button:hover {
+  cursor: default;
+  transform: none;
 }
 
-.left, .right {
-    margin-bottom: 35px;
-    padding: 0 20px;
-    padding-bottom: 20px;
+.left,
+.right {
+  margin-bottom: 35px;
+  padding: 0 20px;
+  padding-bottom: 20px;
 }
 
 .top-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .playAgain {
-    font-size: 30px;
-    padding: 20px;
-    display: none;
+  font-size: 30px;
+  padding: 20px;
+  display: none;
 }
 
 button.resultButton {
-    border: 3px solid #474226;
+  border: 3px solid #474226;
 }
 
 button:hover {
-    cursor: pointer;
+  cursor: pointer;
   transition: all 0.2s ease;
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .button-off {
-    border: 3px solid #474226;
+  border: 3px solid #474226;
 }
 
-h1, p {
-    text-align: center;
-    font-family: 'Quicksand';
+h1,
+p {
+  text-align: center;
+  font-family: "Quicksand";
 }
 
 h1 {
-    margin-bottom: -10px;
+  margin-bottom: -10px;
 }
 
 p {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 #individualResults {
-    display: flex;
-    justify-content: center;
-    gap: 150px;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  text-align: center;
 }
 
 #gameButtons {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
 }
 
 button.win {
-    border: 3px solid #18eb4d;
+  border: 3px solid #18eb4d;
 }
 
 button.lose {
-    border: 3px solid #db1515;
+  border: 3px solid #db1515;
 }
 
 button.tie {
-    border: 3px solid gold;
+  border: 3px solid gold;
 }
 
-#playerScoreText, #computerScoreText, #roundResult {
-    color: gold;
-    font-size: 35px;
-}
-
-footer {
-    font-size: 20px;
-    font-family: 'Quicksand';
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding-bottom: 10px;
+#playerScoreText,
+#computerScoreText,
+#roundResult {
+  color: gold;
+  font-size: 35px;
 }
 
 img {
-    padding-right: 10px;
+  padding-right: 10px;
 }
