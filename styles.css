@@ -3,10 +3,6 @@
     color: white;
 }
 
-.main {
-    height: 100vh;
-}
-
 .far, .fas {
     font-size: 100px;
     color: white;
@@ -27,8 +23,9 @@ button {
 }
 
 .left, .right {
-    margin-bottom: 50px;
-    padding: 20px;
+    margin-bottom: 35px;
+    padding: 0 20px;
+    padding-bottom: 20px;
 }
 
 .top-section {
@@ -38,7 +35,7 @@ button {
 }
 
 .playAgain {
-    font-size: 35px;
+    font-size: 30px;
     padding: 20px;
     display: none;
 }
@@ -62,8 +59,12 @@ h1, p {
     font-family: 'Quicksand';
 }
 
+h1 {
+    margin-bottom: -10px;
+}
+
 p {
-    font-size: 30px;
+    font-size: 25px;
 }
 
 #individualResults {
