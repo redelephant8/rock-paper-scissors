@@ -15,6 +15,7 @@ button {
     border: 3px solid cyan;
     border-radius: 6%;
     transition: all 0.2s ease;
+    font-family: 'Quicksand';
 }
 
 .left button:hover, .right button:hover {
@@ -92,3 +93,22 @@ button.tie {
     border: 3px solid gold;
 }
 
+#playerScoreText, #computerScoreText, #roundResult {
+    color: gold;
+    font-size: 35px;
+}
+
+footer {
+    font-size: 20px;
+    font-family: 'Quicksand';
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+img {
+    padding-right: 10px;
+}
