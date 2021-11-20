@@ -3,14 +3,8 @@
     color: white;
 }
 
-body {
-    height: 98vh;
-    display: flex;
-    flex-direction: column;
-}
-
 .main {
-    flex: 1;
+    height: 100vh;
 }
 
 .far, .fas {
@@ -66,20 +60,6 @@ button:hover {
 h1, p {
     text-align: center;
     font-family: 'Quicksand';
-}
-
-.footer {
-    background-color: #030729;
-}
-
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    height: 2vh;
-    margin: 
-    background-color: #030729;
 }
 
 p {
