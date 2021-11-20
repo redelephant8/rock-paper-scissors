@@ -1,12 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/14ed5e11bc.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <div class="main">
+        <h1>Rock Paper Scissors</h1>
+        <div id="resultsArea">
+            <div class="top-section">
+                <p id="roundResult">First to 5 wins! Select an icon to get started!</p>
+                <button class="playAgain">Play Again?</button>
+            </div>
+            <div id="individualResults">
+                <div class="left">
+                    <p>You: </p>
+                    <p id="playerResult">‎</p>
+                    <button class="resultButton playerResultButton">
+                        <i id="playerButtonIcon" class="fas fa-question"></i>
+                    </button>
+                </div>
+                <div class="right">
+                    <p>Computer: </p>
+                    <p id="computerResult">‎</p>
+                    <button class="resultButton computerResultButton">
+                        <i id="computerButtonIcon" class="fas fa-question"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div id="gameButtons">
+            <button class="gameButton" id="rock">
+                <i class="far fa-hand-rock"></i>
+            </button>
+            <button class="gameButton" id="paper">
+                <i class="far fa-hand-paper"></i>
+            </button>
+            <button class="gameButton" id="scissors">
+                <i class="far fa-hand-scissors"></i>
+            </button>
+        </div>
+        <div id="resultArea">
+
+            <p id="playerScoreText">Player: 0</p>
+            <p id="computerScoreText">Computer: 0</p>
+            <p id="gameResults"></p>
+        </div>
+    </div>
+    <!-- <div class="footer">
+    <footer>redelephant8 ©2021</footer> -->
+    </div>
 </body>
+
 </html>

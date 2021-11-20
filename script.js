@@ -1,3 +1,88 @@
+//Identify UI Buttons
+const gameButtons = document.getElementsByClassName('gameButton');
+const rockButton = document.getElementById('rock');
+const paperButton = document.getElementById('paper');
+const playerButtonIcon = document.getElementById('playerButtonIcon');
+const computerButtonIcon = document.getElementById('computerButtonIcon');
+const playerButton = document.querySelector('.playerResultButton')
+const computerButton = document.querySelector('.computerResultButton')
+const scissorsButton = document.getElementById('scissors');
+const computerResult = document.getElementById('computerResult');
+const playerResult = document.getElementById('playerResult');
+const roundResult = document.getElementById('roundResult');
+const playerScoreText = document.getElementById('playerScoreText');const computerScoreText = document.getElementById('computerScoreText');
+const playAgainButton = document.querySelector('.playAgain');
+
+let playerScore = 0;
+let computerScore = 0;
+let playerSelection = '';
+let roundWinner = '';
+
+
+function getPlayerSelection (playerInput) {
+    playerSelection = playerInput;
+}
+
+playAgainButton.addEventListener('click', () => {
+    resetGame();
+})
+
+ {
+    rockButton.addEventListener('click', () => {
+        getPlayerSelection('Rock');
+        if (playerScore < 5 && computerScore < 5) {
+            game();
+        }
+    });
+
+    paperButton.addEventListener('click', () => {
+        getPlayerSelection('Paper');
+        if (playerScore < 5 && computerScore < 5) {
+            game();
+        }
+    });
+        
+    scissorsButton.addEventListener('click', () => {
+        getPlayerSelection('Scissors');
+        if (playerScore < 5 && computerScore < 5) {
+            game();
+        }
+    });
+}
+
+function game() {
+    resetRound();
+    computerSelection = computerPlay();
+    computerResult.textContent = computerSelection;
+
+    playerResult.textContent = playerSelection;
+
+    updateIcons(playerSelection, computerSelection);
+
+    roundResult.textContent = (playRound(playerSelection, computerSelection));
+    score();
+}
+
+function resetRound() {
+    playerButton.classList = 'resultButton playerResultButton';
+    computerButton.classList = 'resultButton computerResultButton';
+}
+
+function updateIcons(playerSelection, computerSelection) {
+    const playerIcon = `fa-hand-${playerSelection.toLowerCase()}`;
+    const computerIcon = `fa-hand-${computerSelection.toLowerCase()}`;
+
+    playerButtonIcon.classList = `far ${playerIcon} active`
+    computerButtonIcon.classList = `far ${computerIcon} active`
+}
+
+//This function adds the score up
+function score() {
+    computerScoreText.textContent = ('Computer: ' + computerScore);
+    playerScoreText.textContent = ('Player: ' + playerScore);
+}
+
+
 //The computer randomly picks between Rock, Paper, and Scissors
 function computerPlay() {
     let randomNum = Math.floor(1 + Math.random() * 3);
@@ -11,53 +96,61 @@ function computerPlay() {
     
 }
 
-let playerScore = 0;
-let computerScore = 0;
-
 //The code checks to see who wins the round
 function playRound(playerSelection, computerSelection) {
-    if ((playerSelection == 'Rock' && computerSelection == 'Paper') || (playerSelection == 'Scissors' && computerSelection == 'Rock') || (playerSelection == 'Paper' && computerSelection == 'Scissors')) {
+    if ((playerSelection == 'Rock' && computerSelection == 'Paper') ||
+        (playerSelection == 'Scissors' && computerSelection == 'Rock') ||
+        (playerSelection == 'Paper' && computerSelection == 'Scissors')) {
         computerScore++;
-        return ('You lose! ' + computerSelection + ' beats ' + playerSelection)
-    } else if ((playerSelection == 'Paper' && computerSelection == 'Rock') || (playerSelection == 'Rock' && computerSelection == 'Scissors') || (playerSelection == 'Scissors' && computerSelection == 'Paper')) {
-        playerScore++;
-        return ('You win! ' + playerSelection + ' beats ' + computerSelection);
-    } else if (playerSelection === computerSelection) {
-            return 'It\'s a tie!'
-    } else {
-        computerScore++;
-        return 'Invalid input';
+        if (computerScore < 5) {
+            roundWinner = "Computer";
+            playerButton.classList.add('lose');
+            computerButton.classList.add('win');
+            return ('You lose! ' + computerSelection + ' beats ' + playerSelection);
+        } else {
+           return endGame('player');
         }
+    }
+    
+    if ((playerSelection == 'Paper' && computerSelection == 'Rock') ||
+        (playerSelection == 'Rock' && computerSelection == 'Scissors') ||
+        (playerSelection == 'Scissors' && computerSelection == 'Paper')) {
+        playerScore++;
+        if (playerScore < 5) {
+            roundWinner = "Player";
+            playerButton.classList.add('win');
+            computerButton.classList.add('lose');
+            return ('You win! ' + playerSelection + ' beats ' + computerSelection);
+        } else {
+            return endGame('computer');
+        }
+    }
+
+    if (playerSelection === computerSelection) {
+        roundWinner = '';
+        playerButton.classList.add('tie');
+        computerButton.classList.add('tie');
+        return 'It\'s a tie!'
+    }
+   
 }
 
-    //The user is instructed to enter either rock, paper, or scissors
-    function playerPlay() {
-        originalThrow = prompt("Enter either Rock, Paper, or Scissors: ").toLowerCase();
-        return originalThrow.charAt(0).toUpperCase() + originalThrow.slice(1)
+
+function endGame(winner) {
+    playAgainButton.style.display = "initial";
+    if (winner == 'player') {
+        return "The computer has won the game. Try again next time :)";
+    } else if (winner == 'computer') {
+        return "You won the game and are the greatest Rock-Paper-Scissors player in the history of the universe!"
     }
+}
 
-    //The game is run 5 times and after the 5th time, the final score is announced
-    function game() {
-        for (i = 0; i < 5; i++) {
-            let computerSelection = computerPlay();
-            let playerSelection = playerPlay();
-            console.log('The computer threw: ' + computerSelection);
-            console.log('You threw: ' + playerSelection);
-            console.log(playRound(playerSelection, computerSelection));
-            console.log("");
-
-            if (i == 4) {
-                console.log('Player Score: ' + playerScore);
-                console.log('Computer Score: ' + computerScore);
-                if (playerScore > computerScore) {
-                    console.log("You won the game! Congratulations!");
-                } else if (computerScore > playerScore) {
-                    console.log("The computer won the game. Better luck next time :)");
-                } else {
-                    console.log("The game ended in in a tie. Play again to find the true winner!");
-                }
-            }
-        }
-    }
-
-game();
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    score();
+    roundResult.textContent = "First to 5 wins! Select an icon to get started!"
+    playAgainButton.style.display = "none";
+    playerButtonIcon.classList = "fas fa-question";
+    computerButtonIcon.classList = "fas fa-question";
+}
